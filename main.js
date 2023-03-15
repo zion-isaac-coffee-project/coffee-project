@@ -18,6 +18,9 @@ let coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
+localStorage.setItem('cool-coffees', JSON.stringify(coffees));
+
+
 let coffeeDisplay = document.querySelector('#coffees');
 let submitButton = document.querySelector('#submit1');
 let roastSelection = document.querySelector('#roast-selection');
@@ -37,7 +40,7 @@ function renderCoffee(coffee) {
 
 function renderCoffees(coffees) {
     let html = '';
-    for(let i = coffees.length - 1; i >= 0; i--) {
+    for(let i = 0; i < coffees.length; i++) {
         html += renderCoffee(coffees[i]);
     }
     return html;
@@ -46,7 +49,8 @@ function renderCoffees(coffees) {
 function updateCoffees(e) {
     let selectedRoast = roastSelection.value;
     let filteredCoffees = [];
-    coffees.forEach(function(coffee) {
+    let storedCoffees = JSON.parse(localStorage.getItem('coffees')) || coffees;
+    storedCoffees.forEach(function(coffee) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
         } if (selectedRoast === 'all') {
@@ -54,10 +58,14 @@ function updateCoffees(e) {
         }
     });
     coffeeDisplay.innerHTML = renderCoffees(filteredCoffees);
+    console.log(localStorage)
 }
 // listener for change in select box
 
-roastSelection.addEventListener("change", updateCoffees);
+roastSelection.addEventListener("change", e => {
+    updateCoffees(e);
+});
+
 updateCoffees();
 
 // search bar
@@ -78,16 +86,21 @@ let nameAdd = document.querySelector('#name-add');
 let coffeeAdd = document.querySelector('#coffee-add');
 
 function addCoffee() {
-    let coffeeObj = {id: coffees.length + 1, name: nameAdd.value, roast: coffeeAdd.value};
-    let coffeeObj1 = Object.create(coffeeObj);
-    coffees.push(coffeeObj1);
-    console.log(`added a new coffee ${coffeeObj1.name}`)
+    let name = nameAdd.value;
+    let roast = coffeeAdd.value;
+    let id = coffees.length + 1;
+    let coffeeObj = {id, name, roast};
+    coffees.push(coffeeObj);
+    localStorage.setItem('coffees', JSON.stringify(coffees));
 }
 
-submitButton.addEventListener('click', function(){
+submitButton.addEventListener('click', function(e){
+    e.preventDefault();
     addCoffee();
-    updateCoffees()
+    updateCoffees();
 });
+
+
 
 
 
