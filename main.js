@@ -18,15 +18,10 @@ let coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-localStorage.setItem('cool-coffees', JSON.stringify(coffees));
-
 
 let coffeeDisplay = document.querySelector('#coffees');
 let submitButton = document.querySelector('#submit1');
 let roastSelection = document.querySelector('#roast-selection');
-
-const formElement = document.querySelector(".coffee-form");
-const coffeeListElement = document.getElementById("coffee-list");
 let roastSearch = document.querySelector('#roast-search');
 
 
@@ -36,6 +31,10 @@ function renderCoffee(coffee) {
     html += '<p>' + coffee.roast + '</p>';
     html += '</div>';
     return html;
+}
+
+if (coffees.length < 15) {
+    updateCoffees();
 }
 
 function renderCoffees(coffees) {
@@ -58,7 +57,7 @@ function updateCoffees(e) {
         }
     });
     coffeeDisplay.innerHTML = renderCoffees(filteredCoffees);
-    console.log(localStorage)
+
 }
 // listener for change in select box
 
@@ -66,7 +65,6 @@ roastSelection.addEventListener("change", e => {
     updateCoffees(e);
 });
 
-updateCoffees();
 
 // search bar
 function searchCoffee() {
@@ -89,7 +87,7 @@ function addCoffee() {
     let name = nameAdd.value;
     let roast = coffeeAdd.value;
     let id = coffees.length + 1;
-    let coffeeObj = {id, name, roast};
+    let coffeeObj = {'id': id, 'name':name, 'roast': roast};
     coffees.push(coffeeObj);
     localStorage.setItem('coffees', JSON.stringify(coffees));
 }
@@ -100,6 +98,13 @@ submitButton.addEventListener('click', function(e){
     updateCoffees();
 });
 
+
+let clearButton = document.querySelector('#submit2');
+clearButton.addEventListener('click', function (e){
+    e.preventDefault();
+    localStorage.clear();
+    updateCoffees();
+})
 
 
 
