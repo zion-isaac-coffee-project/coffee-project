@@ -1,7 +1,7 @@
 .page-wrapper {
     font-family: Roboto, sans-serif;
-    background: #5F1B28;
-    color: #FEFBE8;
+    color: white;
+    background: url("images/Screenshot 2023-03-15 at 3.08.32 PM.png");
 }
 
 header {
@@ -19,25 +19,36 @@ header  div.column {
 }
 
 .coffee-pic {
-    width: 80px;
+    width: 150px;
 }
 
 main.container {
     margin-top: 30px;
 }
 
-div.coffee.column {
+#coffees {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-
 }
+
+div.coffee-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: rgba(188,143,143, .5);
+    border-radius: 10px;
+    min-width: 550px;
+}
+
 div.coffee {
     display: flex;
-    align-items: end;
-    gap: 20px;
+    flex-direction: row;
+    align-content: end;
+    padding: 20px;
     width: 230px;
-    max-height: 50px;
+    gap: 20px;
 }
 
 div.coffee h1 {
@@ -45,9 +56,9 @@ div.coffee h1 {
 }
 
 div.coffee p {
-    padding-bottom: 3px;
+    padding-top: 7pxpx;
     font-size: 20px;
-    opacity: .5;
+    opacity: 1;
 }
 
 .coffee-form {
@@ -59,7 +70,8 @@ div.coffee p {
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
     margin-bottom: 20px;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(188,143,143, .5);
+    min-width: 550px;
 }
 
 #roast-selection {
@@ -80,8 +92,8 @@ div.coffee p {
     padding: 10px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
-    background-color: rgba(0, 0, 0, 0.05);
-
+    background-color: rgba(188,143,143, .5);
+    min-width: 550px;
 }
 
 #coffee-add {
@@ -94,7 +106,8 @@ div.coffee p {
     border-radius: 4px;
 }
 
-#submit, #submit1 {
+#submit, #submit1, #submit2 {
+    width: 40%;
     border: 1px solid black;
     border-radius: 5px;
     background-color: rosybrown;
@@ -104,4 +117,14 @@ div.coffee p {
 label {
     margin-bottom: -20px;
     font-size: 20px;
+}
+
+.buttons {
+    margin-left: 20px;
+}
+
+.gif {
+    height: 200px;
+    width: 200px;
+    margin-top: 30px;
 }

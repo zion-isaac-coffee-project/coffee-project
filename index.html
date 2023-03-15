@@ -12,18 +12,20 @@
     <header class="container">
         <div class="row">
             <div class="column">
-                <img class="coffee-pic" src="images/coffee.png" alt="coffee">
+                <img class="coffee-pic" src="images/coffeelogobrandnew.png" alt="coffee">
             </div>
             <div class="column align-center justify-center">
-                <h1>Coffee Search</h1>
+                <h1>Codeup Coffee</h1>
             </div>
         </div>
     </header>
     <main class="container">
         <div class="row">
-            <div class="coffee column" id="coffees">
+            <div class="coffee-column column">
+                <div id="coffees">
+                </div>
             </div>
-            <div class="column">
+            <div class="column align-center">
                 <form class="coffee-form" method="" action="">
                     <label for="roast-selection">Roast</label>
                     <select id="roast-selection">
@@ -44,9 +46,14 @@
                     </select>
                     <label for="name-add">Coffee Name</label>
                     <input id="name-add" name="name-add" type="text" placeholder="">
-                    <button id="submit1">Add</button>
-                    <button id="submit2">Clear</button>
+                    <div class="buttons row">
+                        <button id="submit1">Add</button>
+                        <button id="submit2">Clear</button>
+                    </div>
                 </form>
+                <div>
+                    <img class="gif" src="images/coffeesteam.gif" alt="coffee">
+                </div>
             </div>
         </div>
     </main>

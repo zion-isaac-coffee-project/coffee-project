@@ -73,7 +73,6 @@ function searchCoffee() {
     coffees.forEach(function(coffee) {
         if (coffee.name.toLowerCase().includes(selectedRoast)) {
             filteredCoffees.push(coffee);
-            console.log(filteredCoffees);
         }
     });
     coffeeDisplay.innerHTML = renderCoffees(filteredCoffees);
@@ -84,12 +83,16 @@ let nameAdd = document.querySelector('#name-add');
 let coffeeAdd = document.querySelector('#coffee-add');
 
 function addCoffee() {
-    let name = nameAdd.value;
-    let roast = coffeeAdd.value;
-    let id = coffees.length + 1;
-    let coffeeObj = {'id': id, 'name':name, 'roast': roast};
-    coffees.push(coffeeObj);
-    localStorage.setItem('coffees', JSON.stringify(coffees));
+    if (nameAdd.value === '') {
+        alert("Please type in a coffee name!")
+    } else {
+        let name = nameAdd.value;
+        let roast = coffeeAdd.value;
+        let id = coffees.length + 1;
+        let coffeeObj = {'id': id, 'name': name, 'roast': roast};
+        coffees.push(coffeeObj);
+        localStorage.setItem('coffees', JSON.stringify(coffees));
+    }
 }
 
 submitButton.addEventListener('click', function(e){
@@ -100,8 +103,7 @@ submitButton.addEventListener('click', function(e){
 
 
 let clearButton = document.querySelector('#submit2');
-clearButton.addEventListener('click', function (e){
-    e.preventDefault();
+clearButton.addEventListener('click', function (){
     localStorage.clear();
     updateCoffees();
 })
