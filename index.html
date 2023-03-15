@@ -11,8 +11,11 @@
 <div class="page-wrapper">
     <header class="container">
         <div class="row">
-            <div class="column align-center">
-                <h1>Coffee!</h1>
+            <div class="column">
+                <img class="coffee-pic" src="images/coffee.png" alt="coffee">
+            </div>
+            <div class="column align-center justify-center">
+                <h1>Coffee Search</h1>
             </div>
         </div>
     </header>
@@ -21,7 +24,7 @@
             <div class="coffee column" id="coffees">
             </div>
             <div class="column">
-                <form class="coffee-form" method="POST" action="https://request-inspector.glitch.me">
+                <form class="coffee-form" method="" action="">
                     <label for="roast-selection">Roast</label>
                     <select id="roast-selection">
                         <option value="all">All</option>
@@ -29,24 +32,19 @@
                         <option value="medium">medium</option>
                         <option value="dark">dark</option>
                     </select>
-                    <p>
-                        <label for="roast-search"></label>
-                        <input id="roast-search" name="roast-select" type="text" placeholder="Coffee Name">
-                    </p>
-                    <input id="submit" type="submit" />
+                    <label for="roast-search">Coffee Name</label>
+                    <input id="roast-search" name="roast-select" type="text" placeholder="">
                 </form>
-                <form class="coffee-add" method="POST" action="https://request-inspector.glitch.me">
+                <form class="coffee-add" method="" action="">
                     <label for="coffee-add">Roast</label>
                     <select id="coffee-add" name="coffee-add">
-                        <option value="0">Light</option>
-                        <option value="1">Medium</option>
-                        <option value="2">Dark</option>
+                        <option value="light">light</option>
+                        <option value="medium">medium</option>
+                        <option value="dark">dark</option>
                     </select>
-                    <p>
-                        <label for="name-add"></label>
-                        <input id="name-add" name="name-add" type="text" placeholder="Coffee Name">
-                    </p>
-                    <button type="submit">Submit</button>
+                    <label for="name-add">Coffee Name</label>
+                    <input id="name-add" name="name-add" type="text" placeholder="">
+                    <button id="submit1">Submit</button>
                 </form>
             </div>
         </div>

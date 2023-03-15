@@ -19,7 +19,7 @@ let coffees = [
 ];
 
 let coffeeDisplay = document.querySelector('#coffees');
-let submitButton = document.querySelector('#submit');
+let submitButton = document.querySelector('#submit1');
 let roastSelection = document.querySelector('#roast-selection');
 
 const formElement = document.querySelector(".coffee-form");
@@ -43,7 +43,7 @@ function renderCoffees(coffees) {
     return html;
 }
 
-function updateCoffees(e) {// don't submit the form, we just want to update the data
+function updateCoffees(e) {
     let selectedRoast = roastSelection.value;
     let filteredCoffees = [];
     coffees.forEach(function(coffee) {
@@ -56,8 +56,8 @@ function updateCoffees(e) {// don't submit the form, we just want to update the 
     coffeeDisplay.innerHTML = renderCoffees(filteredCoffees);
 }
 // listener for change in select box
-const selectElement = document.getElementById("roast-selection");
-selectElement.addEventListener("change", updateCoffees);
+
+roastSelection.addEventListener("change", updateCoffees);
 updateCoffees();
 
 // search bar
@@ -73,6 +73,23 @@ function searchCoffee() {
     coffeeDisplay.innerHTML = renderCoffees(filteredCoffees);
 }
 roastSearch.addEventListener('keyup', searchCoffee);
+
+let nameAdd = document.querySelector('#name-add');
+let coffeeAdd = document.querySelector('#coffee-add');
+
+function addCoffee() {
+    let coffeeObj = {id: coffees.length + 1, name: nameAdd.value, roast: coffeeAdd.value};
+    let coffeeObj1 = Object.create(coffeeObj);
+    coffees.push(coffeeObj1);
+    console.log(`added a new coffee ${coffeeObj1.name}`)
+}
+
+submitButton.addEventListener('click', function(){
+    addCoffee();
+    updateCoffees()
+});
+
+
 
 
 
