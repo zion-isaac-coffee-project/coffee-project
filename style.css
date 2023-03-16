@@ -1,6 +1,5 @@
 .page-wrapper {
-    font-family: Roboto, sans-serif;
-    color: white;
+    font-family:sans-serif;
     background: url("images/Screenshot 2023-03-15 at 3.08.32 PM.png");
 }
 
@@ -8,10 +7,12 @@ header {
     border-bottom: 2px solid rgba(0, 0, 0, 0.2);
     background-color: rosybrown;
     box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    font-family: Cochin, sans-serif;
 }
 
 header  h1 {
-    font-size: 50px;
+    font-size: 60px;
+    color: black;
 }
 
 header  div.column {
@@ -26,6 +27,10 @@ main.container {
     margin-top: 30px;
 }
 
+.row {
+    gap: 30px;
+}
+
 #coffees {
     display: flex;
     flex-wrap: wrap;
@@ -37,90 +42,122 @@ div.coffee-column {
     flex-direction: column;
     flex-wrap: wrap;
     gap: 20px;
-    background-color: rgba(188,143,143, .5);
+    background-color: rgba(188,143,143, .6);
+    border: 1px solid grey;
     border-radius: 10px;
-    min-width: 550px;
+    width: 50%;
+    min-width: 500px;
+    height: 550px;
+    overflow: scroll;
 }
 
 div.coffee {
     display: flex;
     flex-direction: row;
     align-content: end;
-    padding: 20px;
+    padding: 20px 0 20px 20px;
     width: 230px;
     gap: 20px;
 }
 
 div.coffee h1 {
     font-size: 25px;
+    color: black;
 }
 
 div.coffee p {
-    padding-top: 7pxpx;
+    padding-top: 6px;
     font-size: 20px;
     opacity: 1;
+    color: black;
+}
+
+.column.right {
+    width: 50%;
 }
 
 .coffee-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    gap: 0px;
     border: 1px solid grey;
     padding: 10px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
     margin-bottom: 20px;
-    background-color: rgba(188,143,143, .5);
-    min-width: 550px;
+    background-color: rgba(188,143,143, .6);
+    width: 90%;
 }
 
 #roast-selection {
     border: 1px solid black;
     border-radius: 4px;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: rgba(255,222,173, 0.6);
 }
 
 #roast-search {
     border: 1px solid black;
     border-radius: 4px;
+    width: 100%;
+    background-color: rgba(255,222,173, 0.5);
 }
 
 .coffee-add {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    gap: 0px;
     border: 1px solid grey;
     padding: 10px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
     background-color: rgba(188,143,143, .5);
-    min-width: 550px;
+    width: 90%;
 }
 
 #coffee-add {
     border: 1px solid black;
     border-radius: 4px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: rgba(255,222,173, 0.5);
 }
 
 #name-add {
     border: 1px solid black;
     border-radius: 4px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: rgba(255,222,173, 0.5);
 }
 
-#submit, #submit1, #submit2 {
+#submit1, #submit2 {
     width: 40%;
     border: 1px solid black;
     border-radius: 5px;
     background-color: rosybrown;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: all ease .2s;
+}
+
+#submit1:hover, #submit2:hover {
+    scale: 1.05;
 }
 
 label {
-    margin-bottom: -20px;
+    margin-bottom: 0px;
     font-size: 20px;
+    align-self: start;
+    color: black;
+    font-weight: bold;
 }
 
-.buttons {
-    margin-left: 20px;
+.buttons.row {
+    justify-content: space-evenly;
+    padding: 0;
 }
 
 .gif {
@@ -128,3 +165,10 @@ label {
     width: 200px;
     margin-top: 30px;
 }
+
+form h3 {
+    font-size: 20px;
+    color: black;
+}
+
+

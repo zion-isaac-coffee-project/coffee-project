@@ -1,5 +1,7 @@
-"use strict"
+// IIFE
+(() => {
 
+"use strict"
 
 let coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
@@ -18,7 +20,7 @@ let coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-
+// variables for html elements
 let coffeeDisplay = document.querySelector('#coffees');
 let submitButton = document.querySelector('#submit1');
 let roastSelection = document.querySelector('#roast-selection');
@@ -32,7 +34,7 @@ function renderCoffee(coffee) {
     html += '</div>';
     return html;
 }
-
+// if statement to display original coffees at page load
 if (coffees.length < 15) {
     updateCoffees();
 }
@@ -44,7 +46,7 @@ function renderCoffees(coffees) {
     }
     return html;
 }
-
+// function to filter the coffees along with adding them to local storage
 function updateCoffees(e) {
     let selectedRoast = roastSelection.value;
     let filteredCoffees = [];
@@ -60,13 +62,12 @@ function updateCoffees(e) {
 
 }
 // listener for change in select box
-
 roastSelection.addEventListener("change", e => {
     updateCoffees(e);
 });
 
 
-// search bar
+// search bar function
 function searchCoffee() {
     let selectedRoast = roastSearch.value.toLowerCase();
     let filteredCoffees = [];
@@ -77,11 +78,14 @@ function searchCoffee() {
     });
     coffeeDisplay.innerHTML = renderCoffees(filteredCoffees);
 }
+// listener for the search text bar
 roastSearch.addEventListener('keyup', searchCoffee);
 
+// variables for add form
 let nameAdd = document.querySelector('#name-add');
 let coffeeAdd = document.querySelector('#coffee-add');
 
+// function for adding coffees and putting them in local storage
 function addCoffee() {
     if (nameAdd.value === '') {
         alert("Please type in a coffee name!")
@@ -94,20 +98,21 @@ function addCoffee() {
         localStorage.setItem('coffees', JSON.stringify(coffees));
     }
 }
-
+// listener for add button
 submitButton.addEventListener('click', function(e){
     e.preventDefault();
     addCoffee();
     updateCoffees();
 });
 
-
+// listener for clear button
 let clearButton = document.querySelector('#submit2');
 clearButton.addEventListener('click', function (){
     localStorage.clear();
     updateCoffees();
 })
 
+})();
 
 
 

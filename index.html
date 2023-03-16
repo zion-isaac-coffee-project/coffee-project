@@ -9,8 +9,9 @@
 </head>
 <body>
 <div class="page-wrapper">
+    <!--- header containing logo and title --->
     <header class="container">
-        <div class="row">
+        <div class="row head">
             <div class="column">
                 <img class="coffee-pic" src="images/coffeelogobrandnew.png" alt="coffee">
             </div>
@@ -19,14 +20,19 @@
             </div>
         </div>
     </header>
+    <!--- main page --->
     <main class="container">
-        <div class="row">
+        <div class="row main grow">
+            <!--- div where coffees are added --->
             <div class="coffee-column column">
                 <div id="coffees">
                 </div>
             </div>
-            <div class="column align-center">
+            <!--- right column for the forms --->
+            <div class="column right align-center">
+                <!--- form to search coffee --->
                 <form class="coffee-form" method="" action="">
+                    <h3>Search  Our Coffee</h3>
                     <label for="roast-selection">Roast</label>
                     <select id="roast-selection">
                         <option value="all">All</option>
@@ -37,7 +43,9 @@
                     <label for="roast-search">Coffee Name</label>
                     <input id="roast-search" name="roast-select" type="text" placeholder="">
                 </form>
+                <!--- form to add coffee --->
                 <form class="coffee-add" method="" action="">
+                    <h3>Add A Coffee</h3>
                     <label for="coffee-add">Roast</label>
                     <select id="coffee-add" name="coffee-add">
                         <option value="light">light</option>
